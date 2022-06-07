@@ -1,3 +1,5 @@
 import express from "express";
 
-console.log("Hi");
+const app = express();
+
+export default app;
