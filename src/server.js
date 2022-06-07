@@ -2,6 +2,7 @@ import express from "express";
 import morgan from "morgan";
 import session from "express-session";
 import rootRouter from "./routers/rootRouter";
+import { localsMiddleware } from "./localsMiddlewares";
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.use((req, res, next) => {
   });
 });
 
+app.use(localsMiddleware);
 app.use("/", rootRouter);
 
 export default app;

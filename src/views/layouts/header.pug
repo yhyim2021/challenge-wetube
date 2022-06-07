@@ -3,7 +3,12 @@ header
     ul 
       li 
         a(href="/") Home 
-      li 
-        a(href="/login") Login 
-      li 
-        a(href="/join") Join 
+
+      if loggedIn 
+        li
+          a(href="/logout") Logout
+      else
+        li 
+          a(href="/login") Login 
+        li 
+          a(href="/join") Join 
