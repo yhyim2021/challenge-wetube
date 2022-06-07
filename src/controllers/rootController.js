@@ -13,8 +13,15 @@ export const postJoin = async (req, res) => {
   } = req;
 
   if (password !== cpassword) {
-    return res.status(406).render("join");
+    return res.status(404).render("join");
   }
+
+  const isExistUser = await User.exists({ $or: [{ email }, { username }] });
+  console.log(isExistUser);
+  if (isExistUser) {
+    return res.status(404).render("join");
+  }
+
   const createUser = await User.create({ email, username, password });
   return res.redirect("/");
 };
