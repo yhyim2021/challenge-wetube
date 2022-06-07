@@ -5,6 +5,7 @@ import session from "express-session";
 import MongoStore from "connect-mongo";
 import rootRouter from "./routers/rootRouter";
 import { localsMiddleware } from "./localsMiddlewares";
+import userRouter from "./routers/userRouter";
 
 const app = express();
 
@@ -34,5 +35,6 @@ app.use((req, res, next) => {
 
 app.use(localsMiddleware);
 app.use("/", rootRouter);
+app.use("/users", userRouter);
 
 export default app;
