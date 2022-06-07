@@ -4,7 +4,7 @@
   "description": "nomadcoder에게 배운 것을 제가 직접 구현하게 위해서 만들게 되었습니다.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev:server": "nodemon --exec babel-node src/server.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.18.2",
-    "@babel/preset-env": "^7.18.2"
+    "@babel/node": "^7.17.10",
+    "@babel/preset-env": "^7.18.2",
+    "nodemon": "^2.0.16"
   }
 }
