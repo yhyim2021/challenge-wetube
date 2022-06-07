@@ -1,4 +1,5 @@
 import User from "../models/User";
+import bcrypt from "bcrypt";
 
 export const home = (req, res) => {
   return res.render("home");
@@ -7,7 +8,7 @@ export const getJoin = (req, res) => {
   return res.render("join");
 };
 export const postJoin = async (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   const {
     body: { email, username, password, cpassword },
   } = req;
@@ -25,5 +26,23 @@ export const postJoin = async (req, res) => {
   const createUser = await User.create({ email, username, password });
   return res.redirect("/");
 };
-export const getLogin = (req, res) => {};
-export const postLogin = (req, res) => {};
+export const getLogin = (req, res) => {
+  return res.render("login");
+};
+export const postLogin = async (req, res) => {
+  const {
+    body: { username, password },
+  } = req;
+
+  const user = await User.findOne({ username });
+  if (!user) {
+    return res.status(404).render("login");
+  }
+  const comparePassword = await bcrypt.compare(password, user.password);
+
+  if (!comparePassword) {
+    return res.status(404).render("login");
+  }
+  console.log("Login successful");
+  return res.redirect("/");
+};
