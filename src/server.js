@@ -1,5 +1,6 @@
 import express from "express";
 import morgan from "morgan";
+import session from "express-session";
 import rootRouter from "./routers/rootRouter";
 
 const app = express();
@@ -9,6 +10,21 @@ app.set("views", process.cwd() + "/src/views");
 
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true }));
+
+app.use(
+  session({
+    secret: "Hello!",
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+
+app.use((req, res, next) => {
+  req.sessionStore.all((error, sessions) => {
+    console.log(sessions);
+    next();
+  });
+});
 
 app.use("/", rootRouter);
 
