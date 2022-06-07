@@ -1,0 +1,19 @@
+{
+  "name": "challenge-wetube",
+  "version": "1.0.0",
+  "description": "nomadcoder에게 배운 것을 제가 직접 구현하게 위해서 만들게 되었습니다.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yhyim2021/challenge-wetube.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yhyim2021/challenge-wetube/issues"
+  },
+  "homepage": "https://github.com/yhyim2021/challenge-wetube#readme"
+}
