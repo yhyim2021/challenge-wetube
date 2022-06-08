@@ -1,4 +1,5 @@
 import User from "../models/User";
+import bcrypt from "bcrypt";
 
 export const getProfile = (req, res) => {
   return res.render("profile");
@@ -48,5 +49,34 @@ export const postProfile = async (req, res) => {
   // updateUser[0].name = name;
   // await updateUser[0].save();
   // req.session.user = updateUser[0];
+  return res.redirect("/");
+};
+
+export const getPassword = (req, res) => {
+  return res.render("password");
+};
+
+export const postPassword = async (req, res) => {
+  const {
+    body: { opassword, npassword, cpassword },
+    session: {
+      user: { _id: id },
+    },
+  } = req;
+
+  const user = await User.findById(id);
+
+  const ok = await bcrypt.compare(opassword, user.password);
+
+  if (!ok) {
+    return res.status(401).render("password");
+  }
+  if (npassword !== cpassword) {
+    return res.status(403).render("password");
+  }
+
+  user.password = npassword;
+  await user.save();
+  req.session.user = user;
   return res.redirect("/");
 };
