@@ -14,7 +14,7 @@ export const postUpload = async (req, res) => {
       videoUrl,
       title,
       description,
-      hashtags,
+      hashtags: Video.formatHashtags(hashtags),
     });
     console.log(video);
   } catch (error) {
