@@ -1,0 +1,10 @@
+extends ./layouts/base
+
+block content 
+  div 
+    video(src=`/${video.videoUrl}` controls)
+    div 
+      h3=video.title
+      p=video.description
+      small #{video.hashtags.join()}
+      small=video.createdAt 
