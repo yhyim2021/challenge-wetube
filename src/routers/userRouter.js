@@ -1,4 +1,5 @@
 import express from "express";
+import { getProfile, postProfile } from "../controllers/userController";
 
 const userRouter = express.Router();
 

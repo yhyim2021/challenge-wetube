@@ -10,7 +10,7 @@ export const getJoin = (req, res) => {
 export const postJoin = async (req, res) => {
   // console.log(req.body);
   const {
-    body: { email, username, password, cpassword },
+    body: { email, username, name, password, cpassword },
   } = req;
 
   if (password !== cpassword) {
@@ -23,7 +23,7 @@ export const postJoin = async (req, res) => {
     return res.status(404).render("join");
   }
 
-  const createUser = await User.create({ email, username, password });
+  const createUser = await User.create({ email, username, name, password });
   return res.redirect("/");
 };
 export const getLogin = (req, res) => {
