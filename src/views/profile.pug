@@ -1,7 +1,9 @@
 extends ./layouts/base
 
 block content
-  form(method="POST")
+  form(method="POST" enctype="multipart/form-data")
+    label(id="avatar") Avatar
+    input(type="file" name="avatar" id="avatar" accept="image/*")
     input(type="text", name="email", placeholder="Email address", disabled, value=loggedInUser.email)
     input(type="text", name="username", placeholder="Username", value=loggedInUser.username)
     input(type="text", name="name", placeholder="Name", value=loggedInUser.name)

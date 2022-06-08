@@ -4,7 +4,7 @@ import morgan from "morgan";
 import session from "express-session";
 import MongoStore from "connect-mongo";
 import rootRouter from "./routers/rootRouter";
-import { localsMiddleware } from "./localsMiddlewares";
+import { avatarUpload, localsMiddleware } from "./localsMiddlewares";
 import userRouter from "./routers/userRouter";
 
 const app = express();

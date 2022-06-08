@@ -8,14 +8,17 @@ export const postProfile = async (req, res) => {
   const {
     body: { username, name },
     session: {
-      user: { _id: id },
+      user: { _id: id, avatarUrl },
     },
   } = req;
+  const avatar = req.file ? req.file.path : avatarUrl;
+  console.log(avatar);
 
   try {
     const updateUser = await User.findByIdAndUpdate(
       id,
       {
+        avatarUrl: avatar,
         username,
         name,
       },
