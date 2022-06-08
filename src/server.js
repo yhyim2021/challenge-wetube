@@ -4,8 +4,9 @@ import morgan from "morgan";
 import session from "express-session";
 import MongoStore from "connect-mongo";
 import rootRouter from "./routers/rootRouter";
-import { avatarUpload, localsMiddleware } from "./localsMiddlewares";
+import { localsMiddleware } from "./localsMiddlewares";
 import userRouter from "./routers/userRouter";
+import videoRouter from "./routers/videoRouter";
 
 const app = express();
 
@@ -36,5 +37,6 @@ app.use((req, res, next) => {
 app.use(localsMiddleware);
 app.use("/", rootRouter);
 app.use("/users", userRouter);
+app.use("/videos", videoRouter);
 
 export default app;
