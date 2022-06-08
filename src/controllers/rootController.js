@@ -1,8 +1,11 @@
 import User from "../models/User";
+import Video from "../models/Video";
 import bcrypt from "bcrypt";
 
-export const home = (req, res) => {
-  return res.render("home");
+export const home = async (req, res) => {
+  const videos = await Video.find({});
+  console.log(videos);
+  return res.render("home", { videos });
 };
 export const getJoin = (req, res) => {
   return res.render("join");
