@@ -1,4 +1,5 @@
 extends ./layouts/base
+include ./mixins/videoList
 
 block content
   form(method="POST" enctype="multipart/form-data")
@@ -9,5 +10,8 @@ block content
     input(type="text", name="name", placeholder="Name", value=loggedInUser.name)
     input(type="submit", value="Update Profile")
   
-  hr 
+  br 
   a(href="password") Change Password &rarr;
+  hr
+  each video in videos
+    +videoList(video)

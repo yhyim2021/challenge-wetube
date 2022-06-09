@@ -1,8 +1,16 @@
 import User from "../models/User";
 import bcrypt from "bcrypt";
 
-export const getProfile = (req, res) => {
-  return res.render("profile");
+export const getProfile = async (req, res) => {
+  const {
+    session: {
+      user: { _id: id },
+    },
+  } = req;
+
+  const user = await User.findById(id).populate("videos");
+  console.log(user.videos);
+  return res.render("profile", { videos: user.videos });
 };
 
 export const postProfile = async (req, res) => {
