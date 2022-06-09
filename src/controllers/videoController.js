@@ -43,3 +43,18 @@ export const deleteVideo = async (req, res) => {
   await Video.findByIdAndDelete(id);
   return res.redirect("/");
 };
+
+export const getEditVideo = async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+
+  const video = await Video.findById(id);
+
+  if (!video) {
+    return res.status(404).render("edit");
+  }
+  return res.render("edit", { video });
+};
+
+export const postEditVideo = async (req, res) => {};
