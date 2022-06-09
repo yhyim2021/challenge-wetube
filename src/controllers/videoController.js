@@ -57,4 +57,21 @@ export const getEditVideo = async (req, res) => {
   return res.render("edit", { video });
 };
 
-export const postEditVideo = async (req, res) => {};
+export const postEditVideo = async (req, res) => {
+  const {
+    params: { id },
+    body: { title, description, hashtags },
+  } = req;
+
+  const updateVideo = await Video.findByIdAndUpdate(
+    id,
+    {
+      title,
+      description,
+      hashtags: Video.formatHashtags(hashtags),
+    },
+    { new: true }
+  );
+  console.log(updateVideo);
+  return res.redirect("/");
+};
