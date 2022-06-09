@@ -3,7 +3,7 @@ import Video from "../models/Video";
 import bcrypt from "bcrypt";
 
 export const home = async (req, res) => {
-  const videos = await Video.find({});
+  const videos = await Video.find({}).populate("owner");
   console.log(videos);
   return res.render("home", { videos });
 };

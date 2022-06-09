@@ -9,6 +9,8 @@ block content
       small #{video.hashtags.join()}
       small=video.createdAt 
   
-  a(href=`/videos/${video._id}/delete`) Delete Video 
-  a(href=`/videos/${video._id}/edit`) Edit Video
+  if loggedIn
+    if loggedInUser._id == video.owner._id
+      a(href=`/videos/${video._id}/delete`) Delete Video 
+      a(href=`/videos/${video._id}/edit`) Edit Video
     

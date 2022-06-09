@@ -3,4 +3,4 @@ mixin videoList(video)
     //- video(src=`${video.videoUrl}` controls)
     a(href=`/videos/${video._id}/watch`)
       h3=video.title
-      small=video.createdAt
+      small=video.owner.username
