@@ -59,3 +59,11 @@ export const logout = (req, res) => {
   req.session.destroy();
   return res.redirect("/");
 };
+
+export const search = (req, res) => {
+  const {
+    query: { keyword },
+  } = req;
+  console.log(keyword);
+  return res.render("search");
+};
