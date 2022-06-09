@@ -35,3 +35,11 @@ export const watchVideo = async (req, res) => {
   }
   return res.render("watch", { video });
 };
+
+export const deleteVideo = async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+  await Video.findByIdAndDelete(id);
+  return res.redirect("/");
+};
