@@ -8,6 +8,9 @@ const userSchema = new mongoose.Schema({
   avatarUrl: { type: String, default: "" },
   password: { type: String, required: true },
   createdAt: { type: Date, required: true, default: Date.now },
+  videos: [
+    { type: mongoose.Schema.Types.ObjectId, required: true, ref: "Video" },
+  ],
 });
 
 userSchema.pre("save", async function () {
