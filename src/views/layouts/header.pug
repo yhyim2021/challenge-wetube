@@ -1,19 +1,36 @@
-header 
-  nav 
-    ul 
-      li 
-        a(href="/") Home 
-      li 
-        a(href="/search") Search Video
-      if loggedIn 
-        li 
-          a(href="/videos/upload") Upload Video
-        li 
-          a(href="/users/profile") #{loggedInUser.username}
-        li
-          a(href="/logout") Logout
-      else
-        li 
-          a(href="/login") Login 
-        li 
-          a(href="/join") Join 
+header#header 
+  nav.header__nav
+    .nav__column
+      .header__home
+        a(href="/")
+          <i class="fab fa-youtube fa-3x"></i>
+    .nav__column
+    .nav__column 
+      .header__search 
+        form(method="get" action="/search").search__form
+          input(type="text", name="keyword" placeholder="Search Video")
+          <i class="fas fa-search fa-3x"></i>
+    if !loggedIn 
+      .nav__column 
+        .header__login 
+          a(href="/login")
+            i(class="fas fa-user-circle fa-3x")
+            span.header--login 로그인
+        .header__join 
+          a(href="/join")
+            i(class="fas fa-id-card-alt fa-3x")
+            span.header--join 가입
+    else 
+      .nav__column 
+        .header__upload 
+          a(href="/videos/upload")
+            i(class="fas fa-cloud-upload-alt fa-3x")
+            span.header--upload 업로드 비디오
+        .header__profile 
+          a(href="/users/profile")
+            i(class="fa fa-user-edit fa-3x")
+            span.header--profile 프로필
+        .header__logout
+          a(href="/logout")
+            i(class="fa fa-sign-out-alt fa-3x")
+            span.header--logout 로그아웃
