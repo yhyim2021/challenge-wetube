@@ -1,3 +1,7 @@
+@import "./config/reset";
+
+@import "./layouts/header.scss";
+
 body {
   background-color: tomato;
 }
