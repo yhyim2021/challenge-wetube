@@ -1,6 +1,12 @@
 extends ./layouts/base
+include ./mixins/videoList
 
 block content 
-  form(method="GET")
-    input(type="text" name="keyword" placeholder="Search Video")
-    input(type="submit" value="Search Video")
+  //- form(method="GET")
+  //-   input(type="text" name="keyword" placeholder="Search Video")
+  //-   input(type="submit" value="Search Video")
+  .videoScreen
+    each video in videos 
+      +videoList(video)
+    else 
+      span Nothing not foud
