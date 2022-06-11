@@ -69,7 +69,7 @@ const handleFullScreenBtnClick = () => {
   const isFullScreen = document.fullscreenElement;
   console.log("fullScreenBtn", isFullScreen);
   if (isFullScreen) {
-    document.exitFullScreen();
+    document.exitFullscreen();
     fullScreenBtnIcon.classList = "fas fa-expand";
   } else {
     videoContainer.requestFullscreen();

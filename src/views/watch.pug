@@ -3,40 +3,40 @@ extends ./layouts/base
 block content
   .watchScreen
     .watchScreen__column
-      div#videoContainer
-        video#video(src=`/${video.videoUrl}`).watchScreen--video.video
-        div#videoControls.videoControls
-          div.videoControls__play
+      #videoContainer
+        video#video(src=`/${video.videoUrl}`).watchScreen--video.video  
+        .videoControls
+          .videoControls__play.videoControls__column
             span#playBtn.videoControls__playBtn.playBtn
               i.fas.fa-play
-              div.videoControls__time
-                  span#currentTime 00:00
-                  span  / 
-                  span#totalTime 00:00
-          input(type="range",step="1", value="0", min="0")#timeLine.videoControls__timeLine
-          div.videoControls__volume
+          .videoControls__time.videoControls__column
+            span#currentTime 00:00
+            span  / 
+            span#totalTime 00:00
+          input(type="range",step="1", value="0", min="0")#timeLine.videoControls__timeLine.videoControls__column
+          .videoControls__volume.videoControls__column
             input(type="range",step="0.1", value=0.5, min="0", max="1")#volumeLine
             span#muteBtn.videoControls__muteBtn.muteBtn
               i.fas.fa-volume-up
-          div
-              span#fullScreenBtn
-                  i.fas.fa-expand
-    //-   .watchScreen__watchInfo
-    //-     .watchInfo__column
-    //-       h3.watchInfo--title #{video.owner.name}의 #{video.title}
-    //-       div 
-    //-         small.watchInfo--views 조회수 #{video.meta.views}회 
-    //-         small.watchInfo--createdAt #{new Date(`${video.createdAt}`).toISOString().substr(0,10)}
-    //-     .watchInfo__column
-    //-       if loggedIn
-    //-         if loggedInUser._id == video.owner._id
-    //-           .wathInfo--deleteLink
-    //-             a(href=`/videos/${video._id}/delete`) 삭제
-    //-           .watchInfo--editLink
-    //-             a(href=`/videos/${video._id}/edit`) 수정
-    //- .watchScreen__column 
-    //-   .comment
-    //-     p 댓글이 달렸어요.
+          .videoControls__fullScreenBtn.videoControls__column
+            span#fullScreenBtn
+                i.fas.fa-expand
+      .watchScreen__watchInfo
+        .watchInfo__column
+          h3.watchInfo--title #{video.owner.name}의 #{video.title}
+          div 
+            small.watchInfo--views 조회수 #{video.meta.views}회 
+            small.watchInfo--createdAt #{new Date(`${video.createdAt}`).toISOString().substr(0,10)}
+        .watchInfo__column
+          if loggedIn
+            if loggedInUser._id == video.owner._id
+              .wathInfo--deleteLink
+                a(href=`/videos/${video._id}/delete`) 삭제
+              .watchInfo--editLink
+                a(href=`/videos/${video._id}/edit`) 수정
+    .watchScreen__column 
+      .comment
+        p 댓글이 달렸어요.
 
 block script 
   script(src="/assets/js/videoPlayer.js")
