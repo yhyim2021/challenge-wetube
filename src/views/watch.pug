@@ -36,10 +36,16 @@ block content
                 a(href=`/videos/${video._id}/edit`) 수정
     .watchScreen__column 
       if loggedIn 
-        .video__comments 
+        .video__add-comments 
           form.video__comment--form#commentForm
             textarea(cols="30", rows="10", placeholder="Write a comment...")
             button 커멘트 추가 
+      .video__comments 
+      ul 
+        each comment in video.comments.reverse()
+          li.video__comment 
+            i.fas.fa-comment
+            | #{comment.text}
 
 block script 
   script(src="/assets/js/videoPlayer.js")
