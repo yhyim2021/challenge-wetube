@@ -8,6 +8,9 @@ const muteBtnIcon = muteBtn.querySelector("i");
 const totalTime = document.getElementById("totalTime");
 const timeLine = document.getElementById("timeLine");
 const currentTime = document.getElementById("currentTime");
+const volumeLine = document.getElementById("volumeLine");
+
+let volumeValue = 0.5;
 
 const handlePlayBtnClick = () => {
   if (video.paused) {
@@ -50,8 +53,18 @@ const handleTimeLineInput = (event) => {
   video.currentTime = event.target.value;
 };
 
+const handleVolumeLineInput = (event) => {
+  video.volume = event.target.value;
+  if (video.volume === 0) {
+    muteBtnIcon.classList = "fas fa-volume-mute";
+  } else {
+    muteBtnIcon.classList = "fas fa-volume-up";
+  }
+};
+
 playBtn.addEventListener("click", handlePlayBtnClick);
 muteBtn.addEventListener("click", handleMuteBtnClick);
 video.addEventListener("loadeddata", handleLoadedMetadata);
 video.addEventListener("timeupdate", handleTimeUpdate);
 timeLine.addEventListener("input", handleTimeLineInput);
+volumeLine.addEventListener("input", handleVolumeLineInput);
