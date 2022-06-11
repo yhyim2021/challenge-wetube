@@ -1,7 +1,7 @@
 mixin videoList(video)
   .videoScreen__column
-    a(href=`/videos/${video._id}/watch`).video--link
-      video(src=`${video.videoUrl}`).video--video
+    a(href=`/videos/${video._id}/watch`).videoScreen--link
+      video(src=`${video.videoUrl}`).videoScreen--video
       .videoScreen__videoInfo      
         if video.owner.avatarUrl
           img(src="/"+`${video.owner.avatarUrl}`).videoInfo--avatar
