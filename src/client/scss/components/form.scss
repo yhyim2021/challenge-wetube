@@ -1,0 +1,35 @@
+.formScreen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border: 1px solid black;
+  height: 50vh;
+  margin: auto 0;
+  form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-width: 50vw;
+
+    input {
+      width: 100%;
+      border-radius: 10px;
+      padding: 15px 0;
+      font-size: 15px;
+      text-align: center;
+      border: none;
+      margin-bottom: 10px;
+      transition: 0.3s;
+      font-weight: 1000;
+      letter-spacing: 3px;
+      &::placeholder {
+        font-size: 13px;
+        text-transform: uppercase;
+        font-weight: 100;
+        letter-spacing: 3px;
+      }
+    }
+  }
+}
