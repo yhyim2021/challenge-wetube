@@ -1,8 +1,10 @@
 extends ./layouts/base 
 
 block content 
-  .joinScreen.formScreen
+  .loginScreen.formScreen
     form(method="POST")
-      input(type="text", name="username", placeholder="Username", required)
-      input(type="password", name="password", placeholder="Password", required)
-      input(type="submit", value="로그인")
+      .formScreen__column 
+      .formScreen__column
+        input(type="text", name="username", placeholder="Username", required)
+        input(type="password", name="password", placeholder="Password", required)
+        input(type="submit", value="로그인")
