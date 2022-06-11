@@ -10,9 +10,7 @@ const handleSubmit = (event) => {
 
   fetch(`/api/videos/${videoId}/comment`, {
     method: "POST",
-    body: {
-      text,
-    },
+    body: JSON.stringify({ text }),
   });
 };
 
