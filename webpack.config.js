@@ -9,6 +9,7 @@ module.exports = {
   plugins: [new MiniCssExtractPlugin({ filename: "css/[name].css" })],
   entry: {
     main: BASE_JS + "main.js",
+    videoPlayer: BASE_JS + "videoPlayer.js",
   },
   output: {
     path: path.resolve(__dirname, "assets"),

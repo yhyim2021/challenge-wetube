@@ -3,20 +3,40 @@ extends ./layouts/base
 block content
   .watchScreen
     .watchScreen__column
-      video(src=`/${video.videoUrl}` controls).watchScreen--video
-      .watchScreen__watchInfo
-        .watchInfo__column
-          h3.watchInfo--title #{video.owner.name}의 #{video.title}
-          div 
-            small.watchInfo--views 조회수 #{video.meta.views}회 
-            small.watchInfo--createdAt #{new Date(`${video.createdAt}`).toISOString().substr(0,10)}
-        .watchInfo__column
-          if loggedIn
-            if loggedInUser._id == video.owner._id
-              .wathInfo--deleteLink
-                a(href=`/videos/${video._id}/delete`) 삭제
-              .watchInfo--editLink
-                a(href=`/videos/${video._id}/edit`) 수정
-    .watchScreen__column 
-      .comment
-        p 댓글이 달렸어요.
+      .videoContainer
+        video(src=`/${video.videoUrl}` controls).watchScreen--video
+        #videoControls.videoControls
+          .videoControls__play.videoControls__column
+            span#play.videoCcontrols__playBtn
+              i.fas.fa.-play
+            .videoControls__time 
+              span#currentTime 00:00
+              span /
+              span#totalTime 00:00
+          input(type="range",step="1" value="0" min="0")#totalline.videoControls__timeline
+          .videoControls__volume.videoControls__column
+            input(type="range",step="0.1" value="0.5" min="0" max="1")#volume
+            span#mute 
+              i.fas.fa-volumn-up
+          .videoControls__column
+            span#fullScreen 
+              i.fas.fa-expand          
+    //-   .watchScreen__watchInfo
+    //-     .watchInfo__column
+    //-       h3.watchInfo--title #{video.owner.name}의 #{video.title}
+    //-       div 
+    //-         small.watchInfo--views 조회수 #{video.meta.views}회 
+    //-         small.watchInfo--createdAt #{new Date(`${video.createdAt}`).toISOString().substr(0,10)}
+    //-     .watchInfo__column
+    //-       if loggedIn
+    //-         if loggedInUser._id == video.owner._id
+    //-           .wathInfo--deleteLink
+    //-             a(href=`/videos/${video._id}/delete`) 삭제
+    //-           .watchInfo--editLink
+    //-             a(href=`/videos/${video._id}/edit`) 수정
+    //- .watchScreen__column 
+    //-   .comment
+    //-     p 댓글이 달렸어요.
+
+    block scripts 
+      script(src="/assets/js/videoPlayer.js")
