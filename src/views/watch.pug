@@ -7,17 +7,17 @@ block content
         video#video(src=`/${video.videoUrl}` controls).watchScreen--video.video
         div#videoControls.videoControls
           div.videoControls__play
-              span#playBtn.videoControls__playBtn.playBtn
-                i.fas.fa-play
+            span#playBtn.videoControls__playBtn.playBtn
+              i.fas.fa-play
               div.videoControls__time
                   span#currenTime 00:00
                   span  / 
                   span#totalTime 00:00
           input(type="range",step="1", value="0", min="0")#timeline.videoControls__timeline
           div.videoControls__volume
-              input(type="range",step="0.1", value=0.5, min="0", max="1")#volume
-              span#mute.videoControls__muteBtn.muteBtn
-                  i.fas.fa-volume-up
+            input(type="range",step="0.1", value=0.5, min="0", max="1")#volume
+            span#muteBtn.videoControls__muteBtn.muteBtn
+              i.fas.fa-volume-up
           div
               span#fullScreen
                   i.fas.fa-expand
