@@ -3,6 +3,8 @@
    License: none (public domain)
 */
 
+@import "./varialbes";
+
 html,
 body,
 div,
@@ -142,4 +144,9 @@ input {
   &:focus {
     outline: none;
   }
+}
+
+input[type="submit"] {
+  background-color: $headerBgColor;
+  color: white;
 }
