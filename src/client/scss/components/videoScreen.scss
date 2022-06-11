@@ -11,12 +11,18 @@
     align-items: center;
     // border: 3px solid black;
     .video--link {
-      width: 100%;
-      height: 100%;
+      width: 95%;
+      height: 95%;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      padding: 5px;
+      transition: 0.3s;
+      &:hover {
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        transform: scale(1.05);
+      }
       .video--video {
         width: 90%;
         height: 90%;
