@@ -41,11 +41,11 @@ block content
             textarea(cols="30", rows="10", placeholder="Write a comment...")
             button 커멘트 추가 
       .video__comments 
-      ul 
-        each comment in video.comments.reverse()
-          li.video__comment 
-            i.fas.fa-comment
-            | #{comment.text}
+        ul 
+          each comment in video.comments.reverse()
+            li.video__comment 
+              i.fas.fa-comment 
+              span  #{comment.text}
 
 block script 
   script(src="/assets/js/videoPlayer.js")
