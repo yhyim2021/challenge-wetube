@@ -34,15 +34,13 @@
       align-items: center;
       .watchInfo__column {
         // border: 1px solid black;
-        .watchInfo--title {
-          font-size: 0.9em;
-        }
+
+        .watchInfo--title,
         small,
         a {
-          font-size: 0.9em;
+          font-size: 1.1em;
         }
         a {
-          font-weight: 1000;
           text-decoration: underline;
           transition: 0.3s;
           &:hover {
