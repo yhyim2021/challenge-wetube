@@ -6,6 +6,7 @@ const playBtnIcon = playBtn.querySelector("i");
 const muteBtn = document.getElementById("muteBtn");
 const muteBtnIcon = muteBtn.querySelector("i");
 const totalTime = document.getElementById("totalTime");
+const timeLine = document.getElementById("timeLine");
 
 const handlePlayBtnClick = () => {
   if (video.paused) {
@@ -35,6 +36,7 @@ const formatTime = (second) => {
 
 const handleLoadedMetadata = () => {
   totalTime.innerText = formatTime(Math.floor(video.duration));
+  timeLine.max = Math.floor(video.duration);
 };
 
 playBtn.addEventListener("click", handlePlayBtnClick);
