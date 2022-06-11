@@ -3,7 +3,7 @@ extends ./layouts/base
 block content
   .watchScreen
     .watchScreen__column
-      #videoContainer
+      #videoContainer(data-id=video._id)
         video#video(src=`/${video.videoUrl}`).watchScreen--video.video  
         .videoControls
           .videoControls__play.videoControls__column
@@ -37,7 +37,7 @@ block content
     .watchScreen__column 
       if loggedIn 
         .video__comments 
-          form.video__comment--form
+          form.video__comment--form#commentForm
             textarea(cols="30", rows="10", placeholder="Write a comment...")
             button 커멘트 추가 
 
