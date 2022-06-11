@@ -6,15 +6,17 @@ block content
       video(src=`/${video.videoUrl}` controls).watchScreen--video
       .watchScreen__watchInfo
         .watchInfo__column
-          h3 #{video.owner.name}의 #{video.title}
+          h3.watchInfo--title #{video.owner.name}의 #{video.title}
+          div 
+            small.watchInfo--views 조회수 #{video.meta.views}회 
+            small.watchInfo--createdAt #{new Date(`${video.createdAt}`).toISOString().substr(0,10)}
         .watchInfo__column
-          small.watchInfo--views 조회수 #{video.meta.views}회 
-          small #{new Date(`${video.createdAt}`).toISOString().substr(0,10)}
-      .watchScreen--editDeleteLink
-      if loggedIn
-        if loggedInUser._id == video.owner._id
-          a(href=`/videos/${video._id}/delete`) Delete Video 
-          a(href=`/videos/${video._id}/edit`) Edit Video
+          if loggedIn
+            if loggedInUser._id == video.owner._id
+              .wathInfo--deleteLink
+                a(href=`/videos/${video._id}/delete`) 삭제
+              .watchInfo--editLink
+                a(href=`/videos/${video._id}/edit`) 수정
     .watchScreen__column 
       .comment
         p 댓글이 달렸어요.
