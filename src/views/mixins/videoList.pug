@@ -1,7 +1,12 @@
 mixin videoList(video)
-  div 
-    //- video(src=`${video.videoUrl}` controls)
-    a(href=`/videos/${video._id}/watch`)
-      h3=video.title
-      if video.owner.username
-        small=video.owner.username
+  .videoScreen__column
+    a(href=`/videos/${video._id}/watch`).video--link
+      video(src=`${video.videoUrl}`).video--video
+      .videoScreen__videoInfo      
+        if video.owner.avatarUrl
+          img(src="/"+`${video.owner.avatarUrl}`).videoInfo--avatar
+        else 
+          if video.owner.username
+            span.videoInfo--owner #{video.owner.username[0]}
+        p.videoInfo--title #{video.title}
+        p.videoInfo--views #{video.meta.views} #{video.meta.views === 0 ? "view" : "views"}

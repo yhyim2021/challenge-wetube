@@ -1,8 +1,9 @@
 extends ./layouts/base 
 include ./mixins/videoList
 
-block content 
-  each video in videos
-    +videoList(video)
-  else 
-    h1 비디오가 없어요^^
+block content
+  .videoScreen
+    each video in videos
+      +videoList(video)
+    else 
+      h1 비디오가 없어요^^
