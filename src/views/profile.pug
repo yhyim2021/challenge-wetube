@@ -2,16 +2,20 @@ extends ./layouts/base
 include ./mixins/videoList
 
 block content
-  form(method="POST" enctype="multipart/form-data")
-    label(id="avatar") Avatar
-    input(type="file" name="avatar" id="avatar" accept="image/*")
-    input(type="text", name="email", placeholder="Email address", disabled, value=loggedInUser.email)
-    input(type="text", name="username", placeholder="Username", value=loggedInUser.username)
-    input(type="text", name="name", placeholder="Name", value=loggedInUser.name)
-    input(type="submit", value="Update Profile")
+  .profileScreen.formScreen
+    form(method="POST" enctype="multipart/form-data").formScreen__form
+      .formScreen__column
+        label(id="avatar") 아바타
+        input(type="file" name="avatar" id="avatar" accept="image/*")
+      .formScreen__column
+        input(type="text", name="email", placeholder="Email address", disabled, value=loggedInUser.email)
+        input(type="text", name="username", placeholder="Username", value=loggedInUser.username)
+        input(type="text", name="name", placeholder="Name", value=loggedInUser.name)
+        input(type="submit", value="프로필 업데이트")
   
-  br 
-  a(href="password") Change Password &rarr;
+    .formScreen__link
+      a(href="password")
+        span.formScreen--password 비밀번호 변경
   hr
   each video in videos
     +videoList(video)

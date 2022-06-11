@@ -1,0 +1,20 @@
+.profileScreen {
+  .formScreen__link {
+    margin-top: 10px;
+    letter-spacing: 2px;
+    transition: 0.3s;
+    padding: 5px 0;
+    font-weight: bold;
+    border-radius: 10px;
+    .formScreen--password {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    &:hover {
+      background-color: $headerBgColor;
+    }
+    &:hover .formScreen--password {
+      color: white;
+    }
+  }
+}
