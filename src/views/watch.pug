@@ -1,16 +1,20 @@
 extends ./layouts/base
 
-block content 
-  div 
-    video(src=`/${video.videoUrl}` controls)
-    div 
-      h3=video.title
-      p=video.description
-      small #{video.hashtags.join()}
-      small=video.createdAt 
-  
-  if loggedIn
-    if loggedInUser._id == video.owner._id
-      a(href=`/videos/${video._id}/delete`) Delete Video 
-      a(href=`/videos/${video._id}/edit`) Edit Video
-    
+block content
+  .watchScreen
+    .watchScreen__column
+      video(src=`/${video.videoUrl}` controls).watchScreen--video
+      .watchScreen__watchInfo
+        .watchInfo__column
+          h3 #{video.owner.name}의 #{video.title}
+        .watchInfo__column
+          small.watchInfo--views 조회수 #{video.meta.views}회 
+          small #{new Date(`${video.createdAt}`).toISOString().substr(0,10)}
+      .watchScreen--editDeleteLink
+      if loggedIn
+        if loggedInUser._id == video.owner._id
+          a(href=`/videos/${video._id}/delete`) Delete Video 
+          a(href=`/videos/${video._id}/edit`) Edit Video
+    .watchScreen__column 
+      .comment
+        p 댓글이 달렸어요.

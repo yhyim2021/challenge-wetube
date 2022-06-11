@@ -1,0 +1,41 @@
+.watchScreen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100%;
+  min-height: 100%;
+  flex-direction: column;
+  .watchScreen__column:first-child {
+    // border: 3px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
+    height: 50%;
+    .watchScreen--video {
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 70%;
+      height: 50%;
+    }
+    .watchScreen__watchInfo {
+      padding: 10px 0;
+      width: 70%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-direction: column;
+      .watchInfo__column {
+        .watchInfo--title {
+          font-size: 0.9em;
+        }
+        small {
+          font-size: 0.9em;
+        }
+      }
+    }
+  }
+}
