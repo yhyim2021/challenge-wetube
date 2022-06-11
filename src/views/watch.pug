@@ -3,24 +3,24 @@ extends ./layouts/base
 block content
   .watchScreen
     .watchScreen__column
-      .videoContainer
-        video(src=`/${video.videoUrl}` controls).watchScreen--video
-        #videoControls.videoControls
-          .videoControls__play.videoControls__column
-            span#play.videoCcontrols__playBtn
-              i.fas.fa.-play
-            .videoControls__time 
-              span#currentTime 00:00
-              span /
-              span#totalTime 00:00
-          input(type="range",step="1" value="0" min="0")#totalline.videoControls__timeline
-          .videoControls__volume.videoControls__column
-            input(type="range",step="0.1" value="0.5" min="0" max="1")#volume
-            span#mute 
-              i.fas.fa-volumn-up
-          .videoControls__column
-            span#fullScreen 
-              i.fas.fa-expand          
+      div#videoContainer
+        video#video(src=`/${video.videoUrl}` controls).watchScreen--video.video
+        div#videoControls.videoControls
+          div.videoControls__play
+              span#playBtn.videoControls__playBtn.playBtn
+                i.fas.fa-play
+              div.videoControls__time
+                  span#currenTime 00:00
+                  span  / 
+                  span#totalTime 00:00
+          input(type="range",step="1", value="0", min="0")#timeline.videoControls__timeline
+          div.videoControls__volume
+              input(type="range",step="0.1", value=0.5, min="0", max="1")#volume
+              span#mute.videoControls__muteBtn.muteBtn
+                  i.fas.fa-volume-up
+          div
+              span#fullScreen
+                  i.fas.fa-expand
     //-   .watchScreen__watchInfo
     //-     .watchInfo__column
     //-       h3.watchInfo--title #{video.owner.name}의 #{video.title}
@@ -38,5 +38,5 @@ block content
     //-   .comment
     //-     p 댓글이 달렸어요.
 
-    block scripts 
-      script(src="/assets/js/videoPlayer.js")
+block script 
+  script(src="/assets/js/videoPlayer.js")
