@@ -9,6 +9,9 @@ const totalTime = document.getElementById("totalTime");
 const timeLine = document.getElementById("timeLine");
 const currentTime = document.getElementById("currentTime");
 const volumeLine = document.getElementById("volumeLine");
+const fullScreenBtn = document.getElementById("fullScreenBtn");
+const fullScreenBtnIcon = fullScreenBtn.querySelector("i");
+const videoContainer = document.getElementById("videoContainer");
 
 let volumeValue = 0.5;
 
@@ -62,9 +65,22 @@ const handleVolumeLineInput = (event) => {
   }
 };
 
+const handleFullScreenBtnClick = () => {
+  const isFullScreen = document.fullscreenElement;
+  console.log("fullScreenBtn", isFullScreen);
+  if (isFullScreen) {
+    document.exitFullScreen();
+    fullScreenBtnIcon.classList = "fas fa-expand";
+  } else {
+    videoContainer.requestFullscreen();
+    fullScreenBtnIcon.classList = "fas fa-compress";
+  }
+};
+
 playBtn.addEventListener("click", handlePlayBtnClick);
 muteBtn.addEventListener("click", handleMuteBtnClick);
 video.addEventListener("loadeddata", handleLoadedMetadata);
 video.addEventListener("timeupdate", handleTimeUpdate);
 timeLine.addEventListener("input", handleTimeLineInput);
 volumeLine.addEventListener("input", handleVolumeLineInput);
+fullScreenBtn.addEventListener("click", handleFullScreenBtnClick);
