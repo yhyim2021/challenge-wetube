@@ -39,7 +39,7 @@ export const watchVideo = async (req, res) => {
     params: { id },
   } = req;
 
-  const video = await Video.findById(id).populate("owner");
+  const video = await Video.findById(id).populate("owner").populate("comments");
   if (!video) {
     console.log("video를 찾을 수 없습니다.");
     return res.status(400).redirect("/");

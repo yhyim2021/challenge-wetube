@@ -24,5 +24,7 @@ export const createComment = async (req, res) => {
     video: id,
   });
   console.log(comment);
+  await video.comments.push(comment._id);
+  await video.save();
   return res.sendStatus(201);
 };
