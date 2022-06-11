@@ -1,8 +1,21 @@
 .uploadScreen {
-  label {
-    font-size: 15px;
-    font-weight: 1000;
-    letter-spacing: 3px;
-    border: 1px solid black;
+  form {
+    .formScreen__column:first-child {
+      margin-bottom: 10px;
+      border-radius: 10px;
+      color: rgba(0, 0, 0, 0.9);
+      transition: 0.3s;
+      label {
+        font-size: 2em;
+      }
+      input {
+      }
+      &:hover {
+        background-color: $headerBgColor;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+        color: white;
+        cursor: pointer;
+      }
+    }
   }
 }

@@ -3,10 +3,11 @@ extends ./layouts/base
 block content
   .uploadScreen.formScreen
     form(method="POST" enctype="multipart/form-data")
-      .uploadScreen__form 
+      .formScreen__column
         label(id="video") 비디오
         input(type="file" name="video" id="video" accept="video/*" required)
-      input(type="text", name="title", placeholder="Title", required)
-      input(type="text", name="description", placeholder="Description", required)
-      input(type="text", name="hashtags", placeholder="콤마로 구분해주세요", required)
-      input(type="submit", value="업로드 비디오")
+      .formScreen__column
+        input(type="text", name="title", placeholder="Title", required)
+        input(type="text", name="description", placeholder="Description", required)
+        input(type="text", name="hashtags", placeholder="콤마로 구분해주세요", required)
+        input(type="submit", value="업로드 비디오")
