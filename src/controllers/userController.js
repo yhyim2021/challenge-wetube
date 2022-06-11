@@ -9,7 +9,7 @@ export const getProfile = async (req, res) => {
   } = req;
 
   const user = await User.findById(id).populate("videos");
-  console.log(user.videos);
+  console.log("Profle", user.videos);
   return res.render("profile", { videos: user.videos });
 };
 

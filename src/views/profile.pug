@@ -16,6 +16,6 @@ block content
     .formScreen__link
       a(href="password")
         span.formScreen--password 비밀번호 변경
-  hr
-  each video in videos
-    +videoList(video)
+  .videoScreen
+    each video in videos
+      +videoList(video)
