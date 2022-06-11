@@ -5,6 +5,7 @@ const playBtn = document.getElementById("playBtn");
 const playBtnIcon = playBtn.querySelector("i");
 const muteBtn = document.getElementById("muteBtn");
 const muteBtnIcon = muteBtn.querySelector("i");
+const totalTime = document.getElementById("totalTime");
 
 const handlePlayBtnClick = () => {
   if (video.paused) {
@@ -28,5 +29,14 @@ const handleMuteBtnClick = () => {
   }
 };
 
+const formatTime = (second) => {
+  return new Date(second * 1000).toISOString().substr(14, 5);
+};
+
+const handleLoadedMetadata = () => {
+  totalTime.innerText = formatTime(Math.floor(video.duration));
+};
+
 playBtn.addEventListener("click", handlePlayBtnClick);
 muteBtn.addEventListener("click", handleMuteBtnClick);
+video.addEventListener("loadeddata", handleLoadedMetadata);
