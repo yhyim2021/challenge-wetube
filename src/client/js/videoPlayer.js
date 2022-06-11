@@ -46,7 +46,12 @@ const handleTimeUpdate = (event) => {
   timeLine.value = video.currentTime;
 };
 
+const handleTimeLineInput = (event) => {
+  video.currentTime = event.target.value;
+};
+
 playBtn.addEventListener("click", handlePlayBtnClick);
 muteBtn.addEventListener("click", handleMuteBtnClick);
 video.addEventListener("loadeddata", handleLoadedMetadata);
 video.addEventListener("timeupdate", handleTimeUpdate);
+timeLine.addEventListener("input", handleTimeLineInput);
