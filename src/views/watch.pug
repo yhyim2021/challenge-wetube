@@ -35,8 +35,12 @@ block content
               .watchInfo--editLink
                 a(href=`/videos/${video._id}/edit`) 수정
     .watchScreen__column 
-      .comment
-        p 댓글이 달렸어요.
+      if loggedIn 
+        .video__comments 
+          form.video__comment--form
+            textarea(cols="30", rows="10", placeholder="Write a comment...")
+            button 커멘트 추가 
 
 block script 
   script(src="/assets/js/videoPlayer.js")
+  script(src="/assets/js/commentSection.js")
