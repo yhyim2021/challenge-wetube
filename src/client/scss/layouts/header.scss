@@ -15,7 +15,7 @@ header {
       &:first-child {
         flex: 1 1 8%;
         & .header__home i {
-          font-size: 70px;
+          // font-size: 70px;
         }
       }
       &:nth-child(2) {
@@ -47,11 +47,11 @@ header {
           input {
             width: 100%;
             border-radius: 10px;
-            padding: 20px 0;
-            font-size: 30px;
+            // padding: 20px 0;
+            // font-size: 30px;
             border: none;
             &::placeholder {
-              font-size: 30px;
+              // font-size: 30px;
             }
             &:focus {
               outline: none;
