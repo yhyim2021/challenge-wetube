@@ -36,7 +36,8 @@ const handleSubmit = async (event) => {
   });
   textarea.value = "";
   if (status === 201) {
-    addComment(text);
+    // addComment(text);
+    window.location.reload();
   }
 };
 
