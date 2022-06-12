@@ -38,14 +38,14 @@ block content
       if loggedIn 
         .video__add-comments 
           form.video__comment--form#commentForm
-            textarea(cols="30", rows="10", placeholder="Write a comment...")
-            button 커멘트 추가 
+            textarea(cols="10", rows="2", placeholder="Write a comment...").video__comment--textarea
+            input(type="submit", value="커멘트").video__comment--submit
       .video__comments 
-        ul 
+        ul.video__comments--ul 
           each comment in video.comments.reverse()
             li.video__comment 
               i.fas.fa-comment 
-              span  #{comment.text}
+              span.video__comment--text  #{comment.text}
 
 block script 
   script(src="/assets/js/videoPlayer.js")

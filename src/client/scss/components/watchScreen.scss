@@ -53,4 +53,49 @@
       }
     }
   }
+  .watchScreen__column:last-child {
+    .video__add-comments {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      // border: 1px solid black;
+      width: 90vw;
+      .video__comment--form {
+        display: flex;
+        .video__comment--textarea {
+          width: 80vw;
+          resize: none;
+          border: none;
+          &:focus {
+            outline: none;
+            background: rgba(240, 228, 120, 0.5);
+          }
+        }
+        .video__comment--submit {
+          border: none;
+          border-radius: 10px;
+        }
+      }
+    }
+    .video__comments {
+      margin-top: 10px;
+      margin-left: 10px;
+      .video__comments--ul {
+        .video__comment {
+          display: flex;
+          margin-top: 10px;
+          align-items: center;
+          font-size: 12px;
+          .fas.fa-comment {
+            width: 5%;
+          }
+          .video__comment--text {
+            width: 90%;
+            border-bottom: 1px solid black;
+            padding: 3px 0;
+          }
+        }
+      }
+    }
+  }
 }
