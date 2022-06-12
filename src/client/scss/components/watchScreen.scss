@@ -54,6 +54,7 @@
     }
   }
   .watchScreen__column:last-child {
+    // width: 100%;
     .video__add-comments {
       display: flex;
       justify-content: center;
@@ -90,7 +91,7 @@
             width: 20px;
           }
           .video__comment--text {
-            width: 90%;
+            width: 80vw;
             border-bottom: 1px solid rgba(0, 0, 0, 0.5);
             border-left: 1px solid rgba(0, 0, 0, 0.5);
             padding: 10px 0;
