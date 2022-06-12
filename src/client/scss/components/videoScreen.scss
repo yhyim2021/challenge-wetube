@@ -1,7 +1,8 @@
 .videoScreen {
+  margin-top: 20px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
   min-width: 90vw;
   min-height: 90vh;
